@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Send Email</title>
-</head>
-<body>
-    <h1>Send Email</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Send</button>
-    </form>
-</body>
-</html>
+<!-- send_email.html -->
+
+<form method="post">
+    {% csrf_token %}
+    <label for="email_list">E-posta Listesi:</label>
+    <select name="email_list" id="email_list" multiple>
+      {% for email_list in email_lists %}
+        <option value="{{ email_list.id }}">{{ email_list.name }}</option>
+      {% endfor %}
+    </select><br>
+    <label for="subject">Konu:</label>
+    <input type="text" name="subject" required><br>
+    <label for="message">Mesaj:</label>
+    <textarea name="message" required></textarea><br>
+    <input type="submit" value="Gönder">
+  </form>
+  

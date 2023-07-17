@@ -107,6 +107,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Örnek olarak Gmail kullanıyoruz.
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_gmail_account@gmail.com'  # Gmail adresiniz
+EMAIL_HOST_PASSWORD = 'your_gmail_password'  # Gmail şifreniz
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
